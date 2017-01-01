@@ -1,0 +1,12 @@
+{
+    "name": "root/laravel-easy-postgis",
+    "license": "CC0",
+    "authors": [
+        {
+            "name": "Anders Jurisoo",
+            "email": "jurisoo@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
