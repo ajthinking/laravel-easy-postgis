@@ -13,5 +13,8 @@
         "psr-4": {
             "Ajthinking\\LaravelEasyPostGIS\\": "src/"
         }
-    }
+    },
+    "files": [
+        "src/helpers.php"
+    ]
 }
