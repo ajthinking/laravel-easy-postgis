@@ -5,7 +5,7 @@ When you want geometry data types in your Laravel project. This package keeps th
 ## How it works
 
 * Create your model and migration
- * When you want a geometry column, just create a text column with geometry type and a trailing "_wkt". 
+ * When you want a geometry column, just create a text column tagged with geometry type and a trailing "_wkt". 
  * Examples: "park_polygon_wkt", "tree_point_wkt", "path_linestring_wkt"
 * php artisan migrate
 * php artisan postgisify
