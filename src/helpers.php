@@ -2,11 +2,6 @@
 
 namespace Ajthinking\LaravelEasyPostGIS;
 
-function sayHi() {
-    echo "freedom!";
-    return true;
-}
-
 function createTrigger($tableName) {
     $template = file_get_contents(database_path() . "/sql/create_trigger.stub");
     

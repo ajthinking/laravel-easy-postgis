@@ -2,7 +2,6 @@
 
 namespace Ajthinking\LaravelEasyPostGIS;
 
-
 use Illuminate\Support\ServiceProvider;
 
 class LaravelEasyPostGISServiceProvider extends ServiceProvider
@@ -30,8 +29,4 @@ class LaravelEasyPostGISServiceProvider extends ServiceProvider
     {
         $this->commands($this->commands);
     }
-}
-
-function sayPlease() {
-    return "PLEASE";
 }
