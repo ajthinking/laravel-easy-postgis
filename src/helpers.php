@@ -2,8 +2,8 @@
 
 namespace Ajthinking\LaravelEasyPostGIS;
 
-function createTrigger($tableName) {
-    $template = file_get_contents(database_path() . "/sql/create_trigger.stub");
+function createTrigger($tableName) {    
+    $template = file_get_contents(base_path() . "/vendor/ajthinking/laravel-easy-postgis/sql/create_trigger.stub");
     
     $variables = [
             '$TABLE_NAME$' => $tableName,
@@ -16,9 +16,9 @@ function createTrigger($tableName) {
 }
 
 function createTriggerFunction($tableName, $WKTColumns) {
-    $template = file_get_contents(database_path() . "/sql/create_trigger_function.stub");
-    //$template = file_get_contents(database_path() . "/sql/easy_trigger_function.stub");
-    $process_columns_sub_template = file_get_contents(database_path() . "/sql/process_columns.stub");
+    $template = file_get_contents(base_path() . "/vendor/ajthinking/laravel-easy-postgis/sql/create_trigger_function.stub");
+    //$template = file_get_contents(base_path() . "/vendor/ajthinking/laravel-easy-postgis/sql/easy_trigger_function.stub");
+    $process_columns_sub_template = file_get_contents(base_path() . "/vendor/ajthinking/laravel-easy-postgis/sql/process_columns.stub");
     $processColumns = '';
     foreach ($WKTColumns as $WKTColumn) {
         $variables = [
@@ -60,7 +60,7 @@ function getColumnGeometryType() {
 }
 
 function dropTriggers() {
-    $template = file_get_contents(database_path() . "/sql/drop_triggers.stub");
+    $template = file_get_contents(base_path() . "/vendor/ajthinking/laravel-easy-postgis/sql/drop_triggers.stub");
     
     $variables = [
             '$NAMING_PREFIX$' => 'ajthinking_'
@@ -72,7 +72,7 @@ function dropTriggers() {
 }
 
 function addGeometryColumnIfNotExists($tableName,$geometryColumnName,$geometryType) {
-    $template = file_get_contents(database_path() . "/sql/add_geometry_column.stub");
+    $template = file_get_contents(base_path() . "/vendor/ajthinking/laravel-easy-postgis/sql/add_geometry_column.stub");
     
     $variables = [
             '$TABLE_NAME$' => $tableName,            
