@@ -8,13 +8,13 @@ Add the service provider to providers array in config/app.php:
 
     Ajthinking\LaravelEasyPostGIS\LaravelEasyPostGISServiceProvider::class, 
 
-Publish the configs (config/postgis.php):
+Publish the configs to config/postgis.php:
 
     php artisan vendor:publish
 
 ## How it works
 
-* In your migration, create a text field as $name$_$geometry$_wkt. Example: "park_polygon_wkt"
+* In your migration, create a text field as $NAME$_$GEOMETRY$_wkt. Example: "park_polygon_wkt"
 * php artisan migrate
 * php artisan postgis
 
