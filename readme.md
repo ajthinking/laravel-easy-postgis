@@ -8,6 +8,10 @@ Add the service provider to providers array in config/app.php:
 
     Ajthinking\LaravelEasyPostGIS\LaravelEasyPostGISServiceProvider::class, 
 
+Publish the configs:
+
+    php artisan vendor:publish
+
 ## How it works
 
 * In your migration, create a text field as $name$_$geometry$_wkt. Example: "park_polygon_wkt"
@@ -19,8 +23,13 @@ Now, whenever you Insert or Update on your table, the database will make sure an
 
 ## Configuration
 
-Set the prefixes TODO.
+In config/postgis.php you can set:
+* column type indicators (wkt/geometry)
+* geometry type indicators (POLYGON, LINESTRING ...)
+* database prefix for triggers and functions
+* srid (default is 4326)
+* database schema (default is public)
 
 ## License
 
-CC0 - do whatever you want.
+CC0 - use however you want.
