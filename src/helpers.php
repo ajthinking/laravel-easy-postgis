@@ -2,6 +2,18 @@
 
 namespace Ajthinking\LaravelEasyPostGIS;
 
+function tables() {
+    return \DB::select("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname='" . config('postgis.schema') . "'");
+}
+
+function columns($table) {
+    return \DB::select("SELECT column_name FROM information_schema.columns WHERE table_schema = '" . config('postgis.schema') . "' AND table_name = '". $table->tablename ."';");
+}
+
+function enablePostGIS() {
+    \DB::statement('CREATE EXTENSION IF NOT EXISTS postgis;');
+}
+
 function createTrigger($tableName) {    
     $template = file_get_contents(__DIR__ . "/../sql/create_trigger.stub");
     

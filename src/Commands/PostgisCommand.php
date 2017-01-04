@@ -36,13 +36,15 @@ class PostgisCommand extends Command
 
     public function handle()
     {
+        \Ajthinking\LaravelEasyPostGIS\enablePostGIS();
+        $this->comment("PostGIS is enabled.");
         \Ajthinking\LaravelEasyPostGIS\dropTriggers();
-        $this->comment("Dropped old triggers!");   
-        $tables = \DB::select("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname='" . config('postgis.schema') . "'");
+        $this->comment("Dropped old triggers.");   
+        $tables = \Ajthinking\LaravelEasyPostGIS\tables();
         foreach ($tables as $table) {
             $WKTColumns = [];
             $tableName = $table->tablename;        
-            $columns = \DB::select("SELECT column_name FROM information_schema.columns WHERE table_schema = '" . config('postgis.schema') . "' AND table_name = '". $table->tablename ."';");
+            $columns = \Ajthinking\LaravelEasyPostGIS\columns($table);
             foreach ($columns as $column) {
                 $columnName = $column->column_name;
                 if(\Ajthinking\LaravelEasyPostGIS\isWKTColumn($columnName)) {
@@ -61,6 +63,6 @@ class PostgisCommand extends Command
                     $this->info("Adding triggers for " . $tableName);
             }
         }
-        $this->comment("DONE!");        
+        $this->comment("Done!");        
     }
 }
