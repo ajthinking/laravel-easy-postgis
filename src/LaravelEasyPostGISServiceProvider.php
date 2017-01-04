@@ -17,7 +17,11 @@ class LaravelEasyPostGISServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $configPath = __DIR__.'/../config/postgis.php';
+
+        $this->publishes([
+            $configPath => config_path('postgis.php'),
+        ]);
     }
 
     /**

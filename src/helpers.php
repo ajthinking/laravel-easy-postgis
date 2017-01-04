@@ -55,8 +55,16 @@ function wktColumnNameToGeometryColumnName($columnName) {
     return str_replace('_wkt','_geom',$columnName);
 }
 
-function getColumnGeometryType() {
-    return 'POLYGON';
+function getColumnGeometryType($columnName) {
+    if (strpos($columnName, '_polygon') !== false) {
+        return "POLYGON";
+    }
+    if (strpos($columnName, '_linestring') !== false) {
+        return "LINESTRING";
+    }
+    if (strpos($columnName, '_point') !== false) {
+        return "POINT";
+    }
 }
 
 function dropTriggers() {
