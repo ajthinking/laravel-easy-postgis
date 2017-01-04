@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 class LaravelEasyPostGISServiceProvider extends ServiceProvider
 {
     protected $commands = [
-        'Ajthinking\LaravelEasyPostGIS\Commands\PostgisifyCommand'        
+        'Ajthinking\LaravelEasyPostGIS\Commands\PostgisCommand'        
     ];
 
     /**

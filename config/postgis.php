@@ -21,9 +21,21 @@ return [
     |
     */
 
-    'geometry_indicator' => [
+    'geometry_indicators' => [
         '_polygon'      => 'POLYGON',
         '_linestring'   => 'LINESTRING',
         '_point'        => 'POINT'
-    ]
+    ],
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Database settings
+    |--------------------------------------------------------------------------
+    |
+    */
+    'database_prefix' => 'ajthinking_',
+    'schema'          => 'public',
+    'srid'            => 4326
+
 ];

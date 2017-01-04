@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Log;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class PostgisifyCommand extends Command
+class PostgisCommand extends Command
 {
 
-    protected $name = 'postgisify';
+    protected $name = 'postgis';
 
     /**
      * The command Data.
@@ -36,24 +36,13 @@ class PostgisifyCommand extends Command
 
     public function handle()
     {
-        $this->comment("POSTGISIFY STARTING!");
-        $schema = 'public';
-        $WKTColumnSuffix = '_wkt';
-        $geometryColumnSuffix = '_geom';
-        $geometryTypeIndicators = [
-            '_polygon' => 'POLYGON',
-            '_linestring' => 'LINESTRING'
-        ];
-        $srid = 4326;
-        $namingPrefix = 'ajthinking_';
-
         \Ajthinking\LaravelEasyPostGIS\dropTriggers();
         $this->comment("Dropped old triggers!");   
-        $tables = \DB::select("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname='public'");
+        $tables = \DB::select("SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname='" . config('postgis.schema') . "'");
         foreach ($tables as $table) {
             $WKTColumns = [];
             $tableName = $table->tablename;        
-            $columns = \DB::select("SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = '". $table->tablename ."';");
+            $columns = \DB::select("SELECT column_name FROM information_schema.columns WHERE table_schema = '" . config('postgis.schema') . "' AND table_name = '". $table->tablename ."';");
             foreach ($columns as $column) {
                 $columnName = $column->column_name;
                 if(\Ajthinking\LaravelEasyPostGIS\isWKTColumn($columnName)) {
