@@ -8,7 +8,7 @@ Add the service provider to providers array in config/app.php:
 
     Ajthinking\LaravelEasyPostGIS\LaravelEasyPostGISServiceProvider::class, 
 
-Publish the configs:
+Publish the configs (config/postgis.php):
 
     php artisan vendor:publish
 
@@ -16,7 +16,7 @@ Publish the configs:
 
 * In your migration, create a text field as $name$_$geometry$_wkt. Example: "park_polygon_wkt"
 * php artisan migrate
-* php artisan postgisify
+* php artisan postgis
 
 This will create a mirrored geometry column for instance "park_polygon_geom". It will also add trigger functions to your table.
 Now, whenever you Insert or Update on your table, the database will make sure any _geom column is in sync with the corresponding _wkt-column.
