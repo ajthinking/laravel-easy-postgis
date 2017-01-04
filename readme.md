@@ -4,7 +4,8 @@ When you want geometry data types in your Laravel project. This package keeps th
 
 ## Install
     composer require ajthinking/laravel-easy-postgis
-Add the service provider to providers array in config/app.php
+Add the service provider to providers array in config/app.php:
+
     Ajthinking\LaravelEasyPostGIS\LaravelEasyPostGISServiceProvider::class, 
 
 ## How it works
