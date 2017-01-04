@@ -3,9 +3,9 @@
 When you want geometry data types in your Laravel project. This package keeps the geometry support strictly on the database side, making it more easy to use together with other third party packages affecting your Models. On the laravel side only WKT-strings are used. For a more powerful and integrated approach, see https://github.com/njbarrett/laravel-postgis
 
 ## Install
-
-*composer require ajthinking/laravel-easy-postgis
-*Add Ajthinking\LaravelEasyPostGIS\LaravelEasyPostGISServiceProvider::class to providers array in config/app.php 
+    composer require ajthinking/laravel-easy-postgis
+Add the service provider to providers array in config/app.php
+    Ajthinking\LaravelEasyPostGIS\LaravelEasyPostGISServiceProvider::class, 
 
 ## How it works
 
@@ -23,5 +23,3 @@ Set the prefixes TODO.
 ## License
 
 CC0 - do whatever you want.
-
-
