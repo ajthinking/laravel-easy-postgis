@@ -1,6 +1,6 @@
 # Laravel Easy PostGIS
 
-When you want geometry data types in your Laravel project. This package keeps the geometry support strictly on the database side, making it more easy to use together with other third party packages affecting your Models. On the laravel side only WKT-strings are used. For a more powerful and integrated approach, see https://github.com/njbarrett/laravel-postgis
+When you want geometry data types in your Laravel project. This package keeps the geometry support strictly on the database side, making it easier to use together with other third party packages affecting your Models. On the laravel side only WKT-strings are used. For a more powerful and integrated approach, see https://github.com/njbarrett/laravel-postgis
 
 ## Install
     composer require ajthinking/laravel-easy-postgis
