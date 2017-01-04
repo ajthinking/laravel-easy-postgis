@@ -14,7 +14,7 @@ Publish the configs to config/postgis.php:
 
 ## How it works
 
-* In your migration, create a text field as $NAME$_$GEOMETRY$_wkt. Example: "park_polygon_wkt"
+* In your migration, create a string field as $NAME$_$GEOMETRY$_wkt. Example: "park_polygon_wkt"
 * php artisan migrate
 * php artisan postgis
 
@@ -29,6 +29,12 @@ In config/postgis.php you can set:
 * database prefix for triggers and functions
 * srid (default is 4326)
 * database schema (default is public)
+
+
+## Versions
+This package was developed with/for
+* Laravel 5.3
+* PostgreSQL 9.5
 
 ## License
 
